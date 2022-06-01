@@ -79,6 +79,21 @@ class LinkedList {
     return list
   }
 
+  insertAfter(prev, value) {
+    const found = this.find(e => e === prev)
+    this.#throwIf(found < 0, `No data found named ${prev}`)
+    const node = new Node(value, found.next)
+
+    if (!found) return
+    let tmp = found
+
+    if (!tmp.next) {
+      this.tail = node
+    } else {
+      tmp.next = node
+    }
+  }
+
   toArray() {
     return [...this]
   }
