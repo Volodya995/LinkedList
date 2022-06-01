@@ -9,6 +9,7 @@ class LinkedList {
   constructor(value) {
     this.head = null
     this.tail = null
+    this.len = 0
   }
 
   append(value) {
@@ -23,6 +24,7 @@ class LinkedList {
     }
 
     this.tail = node
+    this.len++
   }
 
   prepend(value) {
@@ -33,6 +35,8 @@ class LinkedList {
     if (!this.tail) {
       this.tail = node
     }
+
+    this.len++
   }
 
   #throwIf = (condition, message) => {
@@ -92,6 +96,7 @@ class LinkedList {
     } else {
       tmp.next = node
     }
+    this.len++
   }
 
   toArray() {
@@ -112,7 +117,7 @@ class LinkedList {
   }
 
   get length() {
-    return this.toArray().length
+    return this.len
   }
 }
 
