@@ -99,6 +99,12 @@ class LinkedList {
     this.len++
   }
 
+  forEach(fn) {
+    for (const node of this) {
+      fn(node)
+    }
+  }
+
   toArray() {
     return [...this]
   }
@@ -120,7 +126,3 @@ class LinkedList {
     return this.len
   }
 }
-
-
-const list = new LinkedList()
-
