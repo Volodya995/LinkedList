@@ -6,7 +6,7 @@ class Node {
 }
 
 class LinkedList {
-  constructor(value) {
+  constructor() {
     this.head = null
     this.tail = null
     this.len = 0
@@ -124,5 +124,29 @@ class LinkedList {
 
   get length() {
     return this.len
+  }
+
+  remove(value) {
+    if (!this.head) {
+      return
+    }
+
+    while (this.head && this.head.value === value) {
+      this.head = this.head.next
+    }
+
+    let current = this.head
+
+    while (current.next) {
+      if (current.next.value === value) {
+        current.next = current.next.next
+      } else {
+        current = current.next
+      }
+    }
+
+    if (this.tail.value === value) {
+      this.tail = current
+    }
   }
 }
